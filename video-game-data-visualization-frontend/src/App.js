@@ -4,15 +4,17 @@ import { useEffect, useState } from 'react';
 import PlatformStats from './components/PlatformStats';
 import GlobalSales from './components/GlobalSales';
 import SearchBar from './components/SeachBar';
+import UniqueFilter from './components/UniqueFilterChart';
 
 function App() {
 
   const [videoGames, setVideoGames] = useState([]);
   const [globalSales, setGlobalSales] = useState([])
   const [getById, setGetById] = useState([])
+  const [uniqueFilter, setUniqueFilter] = useState([])
 
   useEffect(() => {
-    getVideoGames() && getGlobalSales();
+    getVideoGames() && getGlobalSales() && getUniqueFilter();
   }, []);
 
   async function getVideoGames() {
@@ -38,6 +40,17 @@ function App() {
         console.log(error.response)
       }
     }
+    async function getUniqueFilter() {
+      try{
+        // debugger;
+        const response = await axios.get("http://localhost:8080//ranked_publisher");
+        console.log(response.data)
+        setUniqueFilter(response.data);
+
+      } catch(error){
+        console.log(error.response)
+      }
+    }
 
 
   return (
@@ -47,6 +60,7 @@ function App() {
         <GlobalSales parentGlobalSales = {globalSales}/>
         <SearchBar parentData = {videoGames} setGetById = {setGetById}/>
         <PlatformStats parentData = {getById}/>
+        <UniqueFilter parentUniqueFilter = {uniqueFilter}/>
         <div>
           
         </div>
