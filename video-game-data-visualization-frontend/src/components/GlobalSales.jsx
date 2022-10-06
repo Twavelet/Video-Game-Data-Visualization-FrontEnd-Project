@@ -24,8 +24,13 @@ const GlobalSales= (props) => {
       console.log(globalSales)
       
       return(
+        <div>
+            <h2>
+                The Consoles With the Most Global Game Sales Since 2013
+            </h2>
+            <Chart chartType="ColumnChart" width="100%" height="400px" data={globalSales} />
+        </div>
         
-        <Chart chartType="ColumnChart" width="100%" height="400px" data={globalSales} />
             
         
 
