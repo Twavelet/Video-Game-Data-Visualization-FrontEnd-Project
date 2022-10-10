@@ -23,7 +23,7 @@ const UniqueFilter= (props) => {
       return(
         <div>
             <h2>
-                Which Publishers Have the Most Games in the Action Genre, in the Top 300
+                The Publishers That Have the Most Games in the Action Genre, in the Top 300
             </h2>
             <Chart chartType="ColumnChart" width="100%" height="400px" data={UniqueFilter} />
         </div>
