@@ -5,7 +5,7 @@ import PlatformStats from './components/PlatformStats';
 import GlobalSales from './components/GlobalSales';
 import SearchBar from './components/SeachBar';
 import UniqueFilter from './components/UniqueFilterChart';
-// import ConsoleGameCopies from './components/ConsoleGameCopies';
+import MostSuccessfulPublishers from './components/MostSuccessfulPublishers';
 
 function App() {
 
@@ -13,10 +13,11 @@ function App() {
   const [globalSales, setGlobalSales] = useState([])
   const [getById, setGetById] = useState([])
   const [uniqueFilter, setUniqueFilter] = useState([])
-  // const [getByName, setGetByName] = useState([]);
+  const [mostSuccessfulPublisher, setMostSuccessfulPublisher] = useState([])
+  
 
   useEffect(() => {
-    getVideoGames() && getGlobalSales() && getUniqueFilter();
+    getVideoGames() && getGlobalSales() && getUniqueFilter() && getMostSuccessfulPublisher();
   }, []);
 
   async function getVideoGames() {
@@ -45,9 +46,21 @@ function App() {
     async function getUniqueFilter() {
       try{
         // debugger;
-        const response = await axios.get("http://localhost:8080//ranked_publisher");
+        const response = await axios.get("http://localhost:8080/ranked_publisher");
         console.log(response.data)
         setUniqueFilter(response.data);
+
+      } catch(error){
+        console.log(error.response)
+      }
+    }
+
+    async function getMostSuccessfulPublisher() {
+      try{
+        // debugger;
+        const response = await axios.get("http://localhost:8080/copies");
+        console.log(response.data)
+        setMostSuccessfulPublisher(response.data);
 
       } catch(error){
         console.log(error.response)
@@ -63,8 +76,7 @@ function App() {
         <SearchBar parentData = {videoGames} setGetById = {setGetById}/>
         <PlatformStats parentData = {getById}/>
         <UniqueFilter parentUniqueFilter = {uniqueFilter}/>
-        {/* <SearchBar parentData = {videoGames} setGetByName = {setGetByName}/> */}
-        {/* <ConsoleGameCopies parentData = {getByName}/> */}
+        <MostSuccessfulPublishers parentPublisher = {mostSuccessfulPublisher}/>
         <div>
           
         </div>
