@@ -22,24 +22,24 @@ function App() {
 
   async function getVideoGames() {
     try{
-      // debugger;
       const response = await axios.get("http://localhost:8080/games");
       console.log(response.data)
       setVideoGames(response.data);
 
-    } catch(error){
+    }
+    catch(error){
       console.log(error.response)
     }
   }
 
     async function getGlobalSales() {
       try{
-        // debugger;
         const response = await axios.get("http://localhost:8080/platform");
         console.log(response.data)
         setGlobalSales(response.data);
 
-      } catch(error){
+      }
+      catch(error){
         console.log(error.response)
       }
     }
@@ -50,7 +50,8 @@ function App() {
         console.log(response.data)
         setUniqueFilter(response.data);
 
-      } catch(error){
+      }
+      catch(error){
         console.log(error.response)
       }
     }
@@ -62,7 +63,8 @@ function App() {
         console.log(response.data)
         setMostSuccessfulPublisher(response.data);
 
-      } catch(error){
+      }
+      catch(error){
         console.log(error.response)
       }
     }

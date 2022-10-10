@@ -26,7 +26,7 @@ const MostSuccessfulPublishers = (props) => {
                 <h2>
                     The Most Successful Publishers According to Global Games Sales Since 1980
                 </h2>
-                <Chart chartType="ColumnChart" width="100%" height="400px" data={mostSuccessfulPublisher} />
+                <Chart chartType="ColumnChart" width="100%" height="400px" data={mostSuccessfulPublisher}/>
             </div>
           )
           
