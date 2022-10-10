@@ -12,7 +12,7 @@ const SearchBar = (props) => {
         event.preventDefault()
         if (searchInput !== ''){
             const filteredData = props.parentData.filter((item) => {
-                if (item.name.toLowerCase().includes(searchInput.toLowerCase())){
+                if (item.name.toLowerCase() === searchInput.toLowerCase()){
                     return true
                 }
             })
@@ -26,7 +26,7 @@ const SearchBar = (props) => {
 
     return (
     <form onSubmit={searchHandler} className='form-inline'>
-            <div classname='form-group mx-sm-3 mb-2'>
+            <div className='form-group mx-sm-3 mb-2'>
                 <label className="sr-only"><b>SEARCH</b></label>
                 <input placeholder='Enter a Game Title:' className="form-control" type='text' value={searchInput} onChange={(event) => setSearchInput(event.target.value)} />
             </div>
