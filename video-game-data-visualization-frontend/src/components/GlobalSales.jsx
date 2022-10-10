@@ -30,11 +30,8 @@ const GlobalSales= (props) => {
             </h2>
             <Chart chartType="ColumnChart" width="100%" height="400px" data={globalSales} />
         </div>
-        
-            
-        
-
       )
+      
 }
 
 export default GlobalSales;

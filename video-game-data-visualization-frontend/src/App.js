@@ -5,6 +5,7 @@ import PlatformStats from './components/PlatformStats';
 import GlobalSales from './components/GlobalSales';
 import SearchBar from './components/SeachBar';
 import UniqueFilter from './components/UniqueFilterChart';
+import ConsoleGameCopies from './components/ConsoleGameCopies';
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
   const [globalSales, setGlobalSales] = useState([])
   const [getById, setGetById] = useState([])
   const [uniqueFilter, setUniqueFilter] = useState([])
+  const [getByName, setGetByName] = useState([]);
 
   useEffect(() => {
     getVideoGames() && getGlobalSales() && getUniqueFilter();
@@ -61,6 +63,8 @@ function App() {
         <SearchBar parentData = {videoGames} setGetById = {setGetById}/>
         <PlatformStats parentData = {getById}/>
         <UniqueFilter parentUniqueFilter = {uniqueFilter}/>
+        <SearchBar parentData = {videoGames} setGetByName = {setGetByName}/>
+        <ConsoleGameCopies parentData = {getByName}/>
         <div>
           
         </div>
